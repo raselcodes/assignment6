@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+body { background: #0b0b0b; color: #f2f2f2; font-family: var(--font-inter), system-ui, sans-serif; }
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-md bg-accent px-5 py-3 font-display text-sm font-semibold uppercase tracking-wider text-black transition hover:brightness-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-md border border-line bg-transparent px-5 py-3 font-display text-sm font-semibold uppercase tracking-wider text-white transition hover:border-accent hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .tag {
+    @apply rounded-full border border-line bg-panel2 px-3 py-1 font-display text-xs font-medium uppercase tracking-wider text-accent;
+  }
+}
+
+@keyframes toast-in { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+.toast-in { animation: toast-in .2s ease-out; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .toast-in, .animate-spin { animation: none; }
+}
